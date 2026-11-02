@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Name · Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800&family=Montserrat:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#dfe6ee;--bg2:#b9c6d6;--card:rgba(255,255,255,.7);--card2:rgba(255,255,255,.9);--ink:#0e1621;--mute:#51606f;--line:rgba(14,22,33,.12);--acc:#2f7bff;--ok:#1a9d55;--bad:#d64545;--warn:#c98a00;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1118;--bg2:#2a3a4d;--card:rgba(12,16,22,.82);--card2:rgba(30,38,50,.9);--ink:#f2f5f9;--mute:#9aa8b8;--line:rgba(255,255,255,.1);--acc:#4d8dff;--ok:#2ecc71;--bad:#ff6b6b;--warn:#f5b942;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1118;--bg2:#2a3a4d;--card:rgba(12,16,22,.82);--card2:rgba(30,38,50,.9);--ink:#f2f5f9;--mute:#9aa8b8;--line:rgba(255,255,255,.1);--acc:#4d8dff;--ok:#2ecc71;--bad:#ff6b6b;--warn:#f5b942;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+body{margin:0;font-family:Montserrat,system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at 20% 10%,var(--bg2),transparent 55%),radial-gradient(circle at 90% 60%,var(--bg2),transparent 50%),var(--bg);background-attachment:fixed;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1000px;margin:0 auto;padding:12px 14px 40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:20px;backdrop-filter:blur(14px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;align-items:center;gap:6px;padding:10px 16px;margin-bottom:14px;border-radius:999px;background:var(--card);border:1px solid var(--line);backdrop-filter:blur(14px);overflow-x:auto}
+nav a,nav button{color:var(--mute);text-decoration:none;font-weight:600;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border:0;background:none;cursor:pointer;font-family:inherit;white-space:nowrap}
+nav a:hover,nav button:hover{color:var(--ink)}nav .sp{flex:1}
+.pill{display:block;width:fit-content;margin:0 auto 14px;padding:8px 36px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-weight:800;letter-spacing:.5em;font-size:.72rem;text-transform:uppercase}
+.grid{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:860px){.grid{grid-template-columns:1.1fr .9fr}.span{grid-column:1/-1}}
+.hero{display:grid;gap:18px;grid-template-columns:1fr;position:relative;overflow:hidden}
+@media(min-width:620px){.hero{grid-template-columns:120px 1fr}}
+.side{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:.8rem;color:var(--mute)}
+.av{width:96px;height:96px;border-radius:50%;border:3px solid var(--line);overflow:hidden;cursor:pointer;background:var(--card2);display:grid;place-items:center}
+.av img{width:100%;height:100%;object-fit:cover}
+.soc{display:flex;gap:10px}.soc a{color:var(--ink);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);text-decoration:none;font-weight:800;font-size:.8rem}
+h1{font-family:'Barlow Condensed',Impact,sans-serif;font-weight:800;font-size:clamp(2.8rem,10vw,4.6rem);line-height:.95;margin:0 0 8px;text-transform:uppercase;background:linear-gradient(180deg,var(--ink),var(--mute));-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{color:var(--acc);font-weight:600;font-size:.9rem;margin:0 0 6px}
+p{margin:0 0 10px;font-size:.92rem}.mute{color:var(--mute)}
+.status{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 22px;border-radius:999px}
+.status b{font-size:1.1rem}.bars{display:flex;gap:3px;align-items:flex-end;height:18px}.bars i{width:5px;background:var(--ink);border-radius:2px}
+.batt{width:34px;height:15px;border:2px solid var(--ink);border-radius:5px;padding:1px}.batt i{display:block;height:100%;background:var(--ok);border-radius:2px}
+h2{font-size:1rem;letter-spacing:.14em;text-transform:uppercase;margin:0 0 14px;font-weight:800}
+.filters{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.f{width:auto;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card2);color:var(--mute);font:600 .78rem Montserrat,sans-serif;cursor:pointer}
+.f.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.sum{display:flex;gap:14px;align-items:center;margin-bottom:14px}
+.ring{--p:0;width:78px;height:78px;border-radius:50%;background:conic-gradient(var(--ok) calc(var(--p)*1%),var(--line) 0);display:grid;place-items:center;flex:none}
+.ring span{width:60px;height:60px;border-radius:50%;background:var(--card2);display:grid;place-items:center;font-weight:800;font-size:.9rem}
+.run{margin-left:auto;padding:10px 18px;border-radius:999px;border:0;background:var(--ink);color:var(--bg);font:800 .75rem Montserrat,sans-serif;letter-spacing:.08em;cursor:pointer}
+.t{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.t small{display:block;color:var(--mute);font-size:.74rem}
+.chip{font-size:.68rem;font-weight:800;padding:3px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.06em}
+.pass{background:color-mix(in srgb,var(--ok) 22%,transparent);color:var(--ok)}.fail{background:color-mix(in srgb,var(--bad) 22%,transparent);color:var(--bad)}.run-s{background:color-mix(in srgb,var(--warn) 22%,transparent);color:var(--warn)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--mute)}
+.skills{display:flex;flex-wrap:wrap;gap:8px}.skills span{padding:6px 14px;border-radius:999px;border:1px solid var(--line);font-size:.78rem;font-weight:600}
+.proj{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.proj div{background:var(--card2);border:1px solid var(--line);border-radius:20px;padding:16px}
+.proj h3{margin:0 0 6px;font-size:.95rem}
+.photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.ph{aspect-ratio:1;border-radius:18px;border:1px dashed var(--line);background:var(--card2);display:grid;place-items:center;color:var(--mute);font-size:.75rem;cursor:pointer;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+.tag{text-align:center;font-weight:800;letter-spacing:.3em;font-size:.78rem;text-transform:uppercase;color:var(--mute);padding:18px}
+footer{text-align:center;color:var(--mute);font-size:.75rem;margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+ <a href="#home">Home</a><a href="#about">About</a><a href="#testing">Testing</a><a href="#projects">Projects</a><a href="#gallery">Photos</a><a href="#contact">Contact</a>
+ <span class="sp"></span><button id="theme" aria-label="Toggle theme">◐ Theme</button>
+</nav>
+
+<span class="pill" id="home">Portfolio</span>
+
+<div class="grid">
+<!-- HERO -->
+<section class="card hero span">
+ <div class="side">
+  <label class="av" title="Click to upload your photo"><input type="file" accept="image/*" id="avIn" hidden><span id="avPh">＋</span></label>
+  <div class="soc"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="GitHub">gh</a></div>
+  <span>Your Name</span><span>🔔 New Project</span>
+ </div>
+ <div>
+  <h1 contenteditable="true" spellcheck="false">Your Name</h1>
+  <p class="role" contenteditable="true">Integration Test Engineer · QA Automation</p>
+  <p class="mute">What’s up! 👋</p>
+  <p contenteditable="true">I’m [Your Name]. I build and maintain integration tests that keep services talking to each other correctly. Based in [Your City]. I enjoy API design, test automation and clean pipelines.</p>
+ </div>
+</section>
+
+<!-- STATUS -->
+<div class="card status span">
+ <div class="bars"><i style="height:6px"></i><i style="height:10px"></i><i style="height:14px"></i><i style="height:18px"></i></div>
+ <b id="clock">--:--</b>
+ <span class="mute" style="font-size:.8rem">Pass rate <b id="rateTxt" style="color:var(--ok)">0%</b></span>
+ <div class="batt"><i id="batt" style="width:0%"></i></div>
+</div>
+
+<!-- TESTING -->
+<section class="card span" id="testing">
+ <h2>Integration Testing</h2>
+ <div class="filters" id="filters"></div>
+ <div class="sum">
+  <div class="ring" id="ring"><span id="ringTxt">0%</span></div>
+  <div><b id="sumTxt"></b><div class="mute" style="font-size:.78rem">Edit the <code>TESTS</code> list in the code to show your real suites.</div></div>
+  <button class="run" id="runBtn">▶ RUN ALL</button>
+ </div>
+ <div id="list"></div>
+</section>
+
+<!-- ABOUT -->
+<section class="card" id="about">
+ <h2>Introduce Myself</h2>
+ <p contenteditable="true">Write a short story about yourself here: your role, the systems you test, and what drives you. Mention the tools you use day to day and the kinds of problems you enjoy solving.</p>
+ <div class="skills" contenteditable="true"><span>REST / GraphQL</span><span>Postman</span><span>Playwright</span><span>Docker</span><span>CI/CD</span><span>SQL</span><span>Kafka</span></div>
+</section>
+
+<!-- GALLERY -->
+<section class="card" id="gallery">
+ <h2>Photo</h2>
+ <div class="photos" id="photos"></div>
+</section>
+
+<!-- PROJECTS -->
+<section class="card span" id="projects">
+ <h2>Projects</h2>
+ <div class="proj" contenteditable="true">
+  <div><h3>Payments Gateway Suite</h3><p class="mute">End-to-end contract and integration tests across checkout, billing and ledger services.</p></div>
+  <div><h3>Event Pipeline Checks</h3><p class="mute">Message-queue tests validating ordering, retries and dead-letter handling.</p></div>
+  <div><h3>CI Test Orchestration</h3><p class="mute">Parallelised test runs with containerised dependencies and clear reports.</p></div>
+ </div>
+</section>
+</div>
+
+<div class="tag">Test early · Ship with confidence</div>
+<section class="card" id="contact" style="text-align:center">
+ <h2>Contact</h2>
+ <p class="mute" contenteditable="true">you@example.com · linkedin.com/in/yourname</p>
+</section>
+<footer>© <span id="yr"></span> Your Name</footer>
+</div>
