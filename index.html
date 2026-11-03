@@ -160,9 +160,7 @@ for(var i=0;i<4;i++)(function(i){
  function bind(){w.querySelector("input").onchange=function(e){var f=e.target.files[0];if(f)readImg(f,function(d){show(d);save("ph"+i,d)})}}
  bind();load("ph"+i,show);$("photos").appendChild(w);
 })(i); 
-</script>
- <script type="text/javascript" charset="utf-8">
-  (function (g, e, n, es, ys) {
+  function (g, e, n, es, ys) {
     g['_genesysJs'] = e;
     g[e] = g[e] || function () {
       (g[e].q = g[e].q || []).push(arguments)
